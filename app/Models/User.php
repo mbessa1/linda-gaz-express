@@ -9,36 +9,36 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable;
+    {
+        use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+        protected $fillable = [
+            'name', 'email', 'password', 'role', 
+            'latitude', 'longitude', 'ville', 'quartier',
+            'vendeur_id', 'phone', 'status'
+        ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+        protected $hidden = ['password'];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-}
+        public function commandes()
+        {
+            return $this->hasMany(Commande::class);
+        }
+
+        public function produits()
+        {
+            return $this->hasMany(Produit::class, 'user_id');
+        }
+
+        public function livreurs()
+        {
+            return $this->hasMany(User::class, 'vendeur_id'); 
+        }
+
+        public function vendeur()
+        {
+            return $this->belongsTo(User::class, 'vendeur_id'); 
+        }
+    }
+
+
