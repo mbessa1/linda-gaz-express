@@ -20,7 +20,7 @@ class CreateLivraisonsTable extends Migration
             // Localisation GPS du client
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
-            
+            $table->string('localisation')->nullable();
             $table->timestamps();
         });
     }

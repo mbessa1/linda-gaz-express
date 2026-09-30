@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-white p-8 rounded-xl shadow-md">
-    <h1 class="text-3xl font-bold text-green-600 mb-4">À propos de Gaz Express</h1>
+    <h1 class="text-3xl font-bold text-blue-600 mb-4">À propos de Gaz Express</h1>
     <p class="text-gray-700 leading-relaxed">
         Gaz Express est une plateforme web qui facilite la commande et la livraison de bouteilles de gaz.  
         Notre objectif est de rendre l’énergie accessible rapidement, en toute sécurité, et de promouvoir une consommation plus verte 🌍.  

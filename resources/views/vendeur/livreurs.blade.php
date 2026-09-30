@@ -4,11 +4,11 @@
 <h1 class="text-2xl font-bold mb-4">Gérer les livreurs</h1>
 
 @if(session('success'))
-    <div class="bg-green-100 text-green-800 p-2 rounded mb-4">{{ session('success') }}</div>
+    <div class="bg-blue-100 text-red-800 p-2 rounded mb-4">{{ session('success') }}</div>
 @endif
 
 @if($errors->any())
-    <div class="bg-red-100 text-red-800 p-2 rounded mb-4">
+    <div class="bg-blue-100 text-red-800 p-2 rounded mb-4">
         <ul>
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -40,7 +40,7 @@
             </select>
             <input type="text" name="phone" id="phone" placeholder="Numéro" class="flex-1 border p-2 rounded" required>
         </div>
-        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Ajouter</button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">Ajouter</button>
     </form>
 </div>
 
@@ -49,7 +49,7 @@
     <h2 class="font-bold mb-2">Liste des livreurs</h2>
     <table class="w-full table-auto border-collapse border">
         <thead>
-            <tr class="bg-green-50">
+            <tr class="bg-blue-50">
                 <th class="border px-2 py-1">Nom</th>
                 <th class="border px-2 py-1">Email</th>
                 <th class="border px-2 py-1">Téléphone</th>
@@ -66,12 +66,12 @@
                         @if($livreur->status === 'active')
                             <form action="{{ route('vendeur.blockLivreur', $livreur->id) }}" method="POST" class="inline">
                                 @csrf
-                                <button type="submit" class="px-3 py-1 bg-red-600 text-white rounded">Bloquer</button>
+                                <button type="submit" class="px-3 py-1 bg-blue-600 text-white rounded">Bloquer</button>
                             </form>
                         @else
                             <form action="{{ route('vendeur.unblockLivreur', $livreur->id) }}" method="POST" class="inline">
                                 @csrf
-                                <button type="submit" class="px-3 py-1 bg-green-600 text-white rounded">Débloquer</button>
+                                <button type="submit" class="px-3 py-1 bg-blue-600 text-white rounded">Débloquer</button>
                             </form>
                         @endif
                     </td>

@@ -21,8 +21,8 @@
                     <td class="px-6 py-4">{{ $u->email }}</td>
                     <td class="px-6 py-4">
                         <span class="px-3 py-1 rounded-full text-xs font-medium
-                            @if($u->role === 'admin') bg-red-100 text-red-700
-                            @elseif($u->role === 'vendeur') bg-green-100 text-green-700
+                            @if($u->role === 'admin') bg-blue-100 text-blue-700
+                            @elseif($u->role === 'vendeur') bg-blue-100 text-blue-700
                             @elseif($u->role === 'client') bg-blue-100 text-blue-700
                             @else bg-gray-100 text-gray-700
                             @endif">
@@ -32,7 +32,7 @@
                     <td class="px-6 py-4 text-center">
                         <form method="POST" action="/user/{{ $u->id }}/delete" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
                             @csrf
-                            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
                                 Supprimer
                             </button>
                         </form>

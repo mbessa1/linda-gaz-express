@@ -3,10 +3,10 @@
 @section('content')
 <section class="py-10 bg-gray-50">
     <div class="max-w-md mx-auto px-6">
-        <h2 class="text-3xl font-bold text-green-600 mb-6 text-center">Ajouter un Produit</h2>
+        <h2 class="text-3xl font-bold text-blue-600 mb-6 text-center">Ajouter un Produit</h2>
 
         @if ($errors->any())
-            <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+            <div class="mb-4 p-4 bg-blue-100 text-blue-700 rounded-lg">
                 <ul class="list-disc pl-5">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -46,7 +46,7 @@
 
             <div class="flex justify-end space-x-2">
                 <a href="{{ route('vendeur.stocks') }}" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">Annuler</a>
-                <button type="submit" class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">Ajouter</button>
+                <button type="submit" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Ajouter</button>
             </div>
         </form>
     </div>

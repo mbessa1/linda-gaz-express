@@ -17,10 +17,14 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email', 191)->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken(); 
             $table->enum('role', ['client', 'vendeur', 'livreur', 'admin'])->default('client');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
+            $table->string('ville')->nullable();
+            $table->string('quartier')->nullable();
             $table->timestamps();
         });
     }

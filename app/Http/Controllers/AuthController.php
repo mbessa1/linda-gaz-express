@@ -11,7 +11,6 @@ class AuthController extends Controller {
     // Formulaire login
 
     public function loginForm() {
-        dd('toktok');
         return view( 'auth.login' );
     }
 

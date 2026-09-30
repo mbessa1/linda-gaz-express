@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;       
+use App\Models\Produit;    
+use App\Models\Livraison;
 
 class Commande extends Model {
     use HasFactory;

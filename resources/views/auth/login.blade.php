@@ -1,40 +1,31 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center items-center min-h-screen bg-gradient-to-br from-skyBlue via-white to-forestGreen/20 px-4">
-    <div class="w-full max-w-md bg-white shadow-2xl rounded-2xl p-8">
-        
-        <h3 class="text-2xl font-bold text-center text-forestGreen mb-6">🔐 Connexion</h3>
-        
-        <form method="POST" action="{{ route('login') }}" class="space-y-4">
+<div class="flex justify-center items-center min-h-screen px-4">
+    <div class="w-full max-w-md p-8 rounded-2xl shadow-2xl border" style="background:rgba(13,32,68,0.9);border-color:rgba(240,180,41,0.4);">
+        <h2 class="text-3xl font-bold text-center mb-6" style="color:#f0b429;">Connexion</h2>
+        <form method="POST" action="{{ route('login.store') }}">
             @csrf
-            
-            <!-- Email -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" name="email" required
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-solarYellow focus:outline-none transition">
+            @if($errors->any())
+                <div class="mb-4 px-4 py-3 rounded-xl text-sm" style="background:rgba(239,68,68,0.2);color:#ef4444;">
+                    @foreach($errors->all() as $error)<p>❌ {{ $error }}</p>@endforeach
+                </div>
+            @endif
+            <div class="mb-4">
+                <label class="block font-semibold mb-1" style="color:#f0b429;">Email</label>
+                <input type="email" name="email" value="{{ old('email') }}" required class="w-full border rounded-xl px-4 py-3 focus:outline-none" style="background:#0a1628;border-color:#f0b429;color:#f0b429;">
             </div>
-            
-            <!-- Mot de passe -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
-                <input type="password" name="password" required
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-solarYellow focus:outline-none transition">
+            <div class="mb-6">
+                <label class="block font-semibold mb-1" style="color:#f0b429;">Mot de passe</label>
+                <input type="password" name="password" required class="w-full border rounded-xl px-4 py-3 focus:outline-none" style="background:#0a1628;border-color:#f0b429;color:#f0b429;">
             </div>
-            
-            <!-- Bouton -->
-            <button type="submit"
-                class="w-full py-3 bg-forestGreen text-black font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-105">
+            <button type="submit" class="w-full py-3 rounded-full font-bold text-lg transition hover:opacity-80" style="background:#f0b429;color:#0a1628;">
                 Se connecter
             </button>
+            <p class="text-center mt-4 text-sm" style="color:rgba(240,180,41,0.7);">
+                Pas encore de compte ? <a href="{{ route('register') }}" style="color:#f0b429;font-weight:bold;">S inscrire</a>
+            </p>
         </form>
-
-        <!-- Lien inscription -->
-        <p class="mt-6 text-center text-sm text-gray-600">
-            Pas encore inscrit ? 
-            <a href="{{ route('register') }}" class="text-skyBlue font-semibold hover:underline">Créer un compte</a>
-        </p>
     </div>
 </div>
 @endsection

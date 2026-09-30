@@ -5,7 +5,7 @@
     <h2 class="text-xl font-bold mb-4 text-center">Modifier mon mot de passe</h2>
 
     @if(session('success'))
-        <div class="bg-green-200 text-green-800 p-2 rounded mb-4">
+        <div class="bg-green-200 text-red-800 p-2 rounded mb-4">
             {{ session('success') }}
         </div>
     @endif
@@ -17,10 +17,10 @@
         <div class="mb-4">
             <label for="password" class="block text-gray-700">Nouveau mot de passe</label>
             <input type="password" name="password" id="password"
-                class="w-full border rounded p-2 @error('password') border-red-500 @enderror"
+                class="w-full border rounded p-2 @error('password') border-blue-500 @enderror"
                 required>
             @error('password')
-                <p class="text-red-500 text-sm">{{ $message }}</p>
+                <p class="text-blue-500 text-sm">{{ $message }}</p>
             @enderror
         </div>
 

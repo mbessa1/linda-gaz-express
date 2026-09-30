@@ -6,7 +6,7 @@
     <h1 class="text-2xl font-bold mb-4">Mes Livraisons</h1>
 
     @if(session('success'))
-        <div class="bg-green-100 text-green-800 p-3 rounded mb-4">{{ session('success') }}</div>
+        <div class="bg-blue-100 text-red-800 p-3 rounded mb-4">{{ session('success') }}</div>
     @endif
 
     <!-- Liste des livraisons -->
@@ -20,13 +20,13 @@
             <div class="flex items-center space-x-2">
                 <span 
                     class="px-2 py-1 rounded text-sm font-semibold"
-                    :class="livraison.etat === 'effectuee' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'"
+                    :class="livraison.etat === 'effectuee' ? 'bg-blue-100 text-blue-700' : 'bg-yellow-100 text-yellow-700'"
                     x-text="livraison.etat === 'effectuee' ? 'Livrée' : 'En cours'">
                 </span>
                 <button
                     x-show="livraison.etat === 'en_cours'"
                     @click="detailId = livraison.id; $nextTick(() => initMap(livraison.id, livraison.commande.latitude, livraison.commande.longitude))"
-                    class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-500 text-sm">
+                    class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-500 text-sm">
                     Détails / Confirmer
                 </button>
             </div>
@@ -42,7 +42,7 @@
                 <div x-data="">
                     @foreach($livraisons as $livraison)
                         <div x-show="detailId === {{ $livraison->id }}" class="space-y-2">
-                            <h2 class="text-xl font-bold text-green-600">{{ $livraison->commande->produit->marque }} ({{ $livraison->commande->produit->poids }})</h2>
+                            <h2 class="text-xl font-bold text-blue-600">{{ $livraison->commande->produit->marque }} ({{ $livraison->commande->produit->poids }})</h2>
                             <p><strong>Client :</strong> {{ $livraison->commande->client->name ?? 'N/A' }}</p>
                             <p><strong>Adresse :</strong> {{ $livraison->commande->adresse_livraison }}</p>
                             <p><strong>Quantité :</strong> {{ $livraison->commande->quantite }}</p>
@@ -54,7 +54,7 @@
                             <!-- Formulaire confirmer livraison -->
                             <form action="{{ route('livreur.commandes.confirmer', $livraison->id) }}" method="POST" class="mt-4">
                                 @csrf
-                                <button type="submit" class="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">
+                                <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">
                                     Confirmer Livraison
                                 </button>
                             </form>

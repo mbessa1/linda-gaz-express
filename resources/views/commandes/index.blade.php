@@ -4,7 +4,7 @@
 @section('content')
 <section class="py-10 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-green-600 mb-6">Mes Commandes</h2>
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Mes Commandes</h2>
 
         @if($commandes->isEmpty())
             <div class="p-6 bg-white shadow-lg rounded-2xl text-center text-gray-500">
@@ -13,7 +13,7 @@
         @else
             <div class="overflow-x-auto bg-white shadow-lg rounded-2xl">
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-green-50">
+                    <thead class="bg-blue-50">
                         <tr>
                             <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Produit</th>
                             <th class="px-6 py-3 text-center text-sm font-semibold text-gray-700">Quantité</th>
@@ -25,17 +25,17 @@
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         @foreach($commandes as $c)
-                            <tr class="hover:bg-green-50 transition">
+                            <tr class="hover:bg-blue-50 transition">
                                 <td class="px-6 py-4">{{ $c->produit->marque }} ({{ $c->produit->poids }})</td>
                                 <td class="px-6 py-4 text-center">{{ $c->quantite }}</td>
-                                <td class="px-6 py-4 text-center font-semibold text-green-600">{{ number_format($c->prix_total, 0, ',', ' ') }} FCFA</td>
+                                <td class="px-6 py-4 text-center font-semibold text-blue-600">{{ number_format($c->prix_total, 0, ',', ' ') }} FCFA</td>
                                 <td class="px-6 py-4 text-center">
                                     @if($c->statut === 'livree')
-                                        <span class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">Livrée</span>
+                                        <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Livrée</span>
                                     @elseif($c->statut === 'en_attente')
                                         <span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">En attente</span>
                                     @elseif($c->statut === 'annulee')
-                                        <span class="px-2 py-1 rounded-full bg-red-100 text-red-700 text-sm font-semibold">Annulée</span>
+                                        <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Annulée</span>
                                     @else
                                         <span class="px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-semibold">{{ ucfirst($c->statut) }}</span>
                                     @endif
@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <button @click="showAddressModal({{ $c->id }}, '{{ $c->adresse_livraison }}')"
-                                            class="px-3 py-1 bg-green-600 text-white rounded-full text-sm hover:bg-green-700 transition">
+                                            class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm hover:bg-blue-700 transition">
                                         Mettre à jour
                                     </button>
                                 </td>
@@ -62,13 +62,13 @@
 <div x-data="{ showModal: false, commandeId: null, adresse: '' }">
     <div x-show="showModal" x-cloak class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div class="bg-white rounded-xl shadow-lg p-6 w-96">
-            <h3 class="text-xl font-bold text-green-600 mb-4">Mettre à jour l'adresse</h3>
+            <h3 class="text-xl font-bold text-blue-600 mb-4">Mettre à jour l'adresse</h3>
             <input type="text" x-model="adresse" placeholder="Ville, quartier, rue..." 
                    class="w-full border border-gray-300 rounded-full px-4 py-2 mb-4">
 
             <div class="flex justify-end space-x-2">
                 <button @click="showModal=false" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">Annuler</button>
-                <button @click="saveAddress()" class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">Enregistrer</button>
+                <button @click="saveAddress()" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Enregistrer</button>
             </div>
         </div>
     </div>

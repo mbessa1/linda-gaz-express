@@ -10,12 +10,12 @@ class ProduitSeeder extends Seeder
     public function run(): void
     {
         $produits = [
-            ['marque' => 'Total Energies', 'poids' => '12.5kg', 'prix' => 6500],
-            ['marque' => 'Tradex', 'poids' => '6kg', 'prix' => 3500],
-            ['marque' => 'StarGas', 'poids' => '12.5kg', 'prix' => 6000],
-            ['marque' => 'Neptune Oil', 'poids' => '15kg', 'prix' => 7000],
-            ['marque' => 'Bocom', 'poids' => '6kg', 'prix' => 3200],
-            ['marque' => 'Ola Energy', 'poids' => '12.5kg', 'prix' => 6400],
+            ['marque' => 'Total Energies', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/TOTAL.jpg'],
+            ['marque' => 'Tradex', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/TRADEX.jpg'],
+            ['marque' => 'StarGas', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/gaze.jpg'],
+            ['marque' => 'Neptune Oil', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/NEPTUNE.jpeg'],
+            ['marque' => 'Bocom', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/BOCOM.jpg'],
+            ['marque' => 'Ola Energy', 'poids' => '12kg', 'prix' => 6500, 'image' => '/images/OLAGAZ.jpg'],
         ];
 
         foreach ($produits as $p) {

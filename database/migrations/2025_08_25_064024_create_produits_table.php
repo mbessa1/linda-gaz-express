@@ -16,8 +16,10 @@ class CreateProduitsTable extends Migration
     Schema::create('produits', function (Blueprint $table) {
         $table->id();
         $table->string('marque'); // ex: Total, Tradex...
-        $table->enum('poids', ['6kg','12.5kg','35kg','15kg']);
+        $table->enum('poids', ['3kg','6kg','12kg','12.5kg','15kg','35kg']);
         $table->decimal('prix', 8, 2);
+        $table->string('image')->nullable();
+        $table->text('description')->nullable();
         $table->timestamps();
     });
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Produit extends Model {
-    protected $fillable = [ 'marque', 'poids', 'prix', 'user_id' ];
+    protected $fillable = [ 'marque', 'poids', 'prix', 'user_id', 'image' ];
 
     public function stock() {
         return $this->hasOne( Stock::class );
